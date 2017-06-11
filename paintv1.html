@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var x=0, y=0;
+function mostrarCoordenadas(event)
+{
+  x=event.clientX;
+  y=event.clientY;
+  var luis = document.getElementById('etiqueta');
+  luis.innerHTML="El valor en X es:"+x+" y en Y es:"+y;
+}
+
+function crearJugador(x,y){
+  //capturo el elemento canvas por medio de su id
+  var canvas2 = document.getElementById('canvas');
+  //le asigno con la funcion que es contenido 2d
+  ctx2 = canvas2.getContext("2d");
+  //le asigno color con el estilo azul
+  ctx2.fillStyle = "green";
+  ctx2.beginPath();
+  ctx2.rect(x, y, 20, 20);
+  ctx2.fill();
+  ctx2.closePath();
+}
+</script>
+</head>
+
+<body>
+
+<div onmousemove="mostrarCoordenadas(event),crearJugador(x,y);"   style="background:blue;width:600px;height:1024px;" onclick="" >
+<label id="etiqueta"></label>
+<canvas id="canvas"  width="1024px" height="572px">  </canvas>
+</div>
+</body>
+</html>
